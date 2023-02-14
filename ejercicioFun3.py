@@ -11,3 +11,11 @@ kilómetros se consideran especiales y tendrán un recargo de
 El total de kilómetros por recorrer durante toda la vuelta serán
 3.277 kilómetros,el ganador de la vuelta a España recibirá 700
 millones de pesos."""
+
+totalKilometros=3277
+sueldoBasico=input("Ingrese sueldo básico por kilometro recorrido: ")
+numeroKilometros=input("Ingrese el número de kilómetros recorridos durante toda la vuelta")
+numeroKilometrosLider=input("Ingrese el número de kilómetros recorridos con la camiseta de líder")
+if numeroKilometrosLider>1800:
+    kmEspeciales=sueldoBasico+(sueldoBasico*0.25)
+

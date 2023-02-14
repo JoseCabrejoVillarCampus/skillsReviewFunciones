@@ -7,9 +7,10 @@ con la medalla de oro y si rompió récord, reportar el pago que
 será de 500 millones. El récord esta en 15,50 metros"""
 
 
-atletasMarcas=[]
+
 
 def AgregarAtletas():
+    atletasMarcas=[]
     cantidadAtletas = int(input("Cuantos atletas desea agregar: "))
     for x in range(cantidadAtletas):
         nombre = input("Ingrese el nombre del atleta: ")
@@ -18,11 +19,7 @@ def AgregarAtletas():
         atletasMarcas.append(atletaDic)
         if (marca>15.50):
             print ("El Atleta rompio el record de 15.50 metros \n el pago que será de 500 millones")
-            atletasMarcas = dict(sorted(atletasMarcas.items(), key=lambda item:item[1], reverse=True))
-            print(atletasMarcas[0])
-
-
-
+        
 AgregarAtletas()
 
 """

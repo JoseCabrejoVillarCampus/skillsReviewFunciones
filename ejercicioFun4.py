@@ -4,3 +4,7 @@ y el número de unidades vendidas de ese artículo.
 Haga un programa en Python para determinar cuál fue el
 almacén que mas vendió, cual fue el articulo más vendido de
 ese almacén y cual el más vendido en general"""
+
+
+numeroAlmacenes=500
+dbAlmacenes=[{}]
