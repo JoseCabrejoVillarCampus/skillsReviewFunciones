@@ -4,72 +4,13 @@ developers, entre otros, por tal razón, ha solicitado el diseño de
 un programa que cuente con el siguiente menú como panel de
 control:"""
 
-from os import system
 
-dbCampusArtemis = [{"nombreArtemis":"","apellidoArtemis":""}]
-dbCampusSputnik = [{"nombreSputnik":"","apellidoSputnik":""}]
-
-def AgregarCamperArtemis(camperArtemis):
-    cantidadCampers = int(input("Cuantos campers desea agregar: "))
-    for x in range(cantidadCampers):
-        nombreArtemis = input("Ingrese el nombre del camper: ")
-        apellidoArtemis = input("Ingrese el apellido del camper: ")
-        camperDic={"nombreArtemis":nombreArtemis,"apellidoArtemis":apellidoArtemis}
-        dbCampusArtemis.append(camperDic)
-    
-def EliminarCamperArtemis(camperArtemis):
-    nombreArtemis= input("Ingrese el nombre del camper a eliminar: ")
-    for nombreArtemis in dbCampusArtemis:
-        if(nombreArtemis["nombreArtemis"] == nombreArtemis):
-            dbCampusArtemis.remove(nombreArtemis)
-            
-def ModificarCamperArtemis(camperArtemis):
-    nombreArtemis = input("Ingrese el nombre del camper a modificar: ")
-    for nombreArtemis in dbCampusArtemis:
-        if(nombreArtemis["nombreArtemis"] == nombreArtemis):
-            nombreArtemis = input("Ingrese el nombre del camper: ")
-            apellidoArtemis = input("Ingrese el apellido camper: ")
-            nombreArtemis["nombreArtemis"] = nombreArtemis
-            nombreArtemis["apellidoArtemis"] = apellidoArtemis
-
-def ObtenerCamperArtemis(camperArtemis):
-    for nombreArtemis in dbCampusArtemis:
-        if(nombreArtemis["nombreArtemis"] == nombreArtemis):
-            print(nombreArtemis)
-
-def AgregarCamperSputnik(camperSputnik):
-    cantidadCampers1 = int(input("Cuantos camper desea agregar: "))
-    for x in range(cantidadCampers1):
-        nombreSputnik = input("Ingrese el nombre del camper: ")
-        apellidoSputnik = input("Ingrese el apellido del camper: ")
-        camperDic1={"nombreSputnik":nombreSputnik,"apellidoSputnik":apellidoSputnik}
-        dbCampusSputnik.append(camperDic1)
-    
-def EliminarCamperSputnik(camperSputnik):
-    nombreSputnik= input("Ingrese el nombre del a eliminar: ")
-    for nombreSputnik in dbCampusSputnik:
-        if(nombreSputnik["nombreSputnik"] == nombreSputnik):
-            dbCampusSputnik.remove(nombreSputnik)
-            
-def ModificarCamperSputnik(camperSputnik):
-    nombreSputnik = input("Ingrese el nombre del camperSputnik a modificar: ")
-    for nombreSputnik in dbCampusSputnik:
-        if(nombreSputnik["nombreSputnik"] == nombreSputnik ):
-            nombreSputnik = input("Ingrese el nombre del camper : ")
-            apellidoSputnik = input("Ingrese el apellido camper : ")
-            nombreSputnik["nombreSputnik"] = nombreSputnik
-            nombreSputnik["apellidoSputnik"] = apellidoSputnik
-
-def ObtenerCamperSputnik(camperSputnik):
-    for nombreSputnik in dbCampusSputnik:
-        if(nombreSputnik["nombreSputnik"] == nombreSputnik):
-            print(nombreSputnik)
-
-while True:
+opcion=''
+while opcion!=3:
     print("----------------------MENU-------------------------\n"
     "\t 1. CREAR GRUPO ARTEMIS:\n"
-    "\t1.1 LISTAR CAMPERS DE ARTEMIS:\n"
-    "\t1.2 AGREGAR CAMPERS A ARTEMIS:\n"
+    "\t1.1 AGREGAR CAMPERS A ARTEMIS:\n"
+    "\t1.2 LISTAR CAMPERS DE ARTEMIS:\n"
     "\t1.3 ELIMINAR CAMPERS DE ARTEMIS:\n"
     "\t1.4 ORDENAR ALFABETICAMENTE EN LISTA DE ARTEMIS:\n"
     "\t1.5 BUSCAR CAMPERS EN LISTA DE ARTEMIS:\n"
@@ -82,33 +23,75 @@ while True:
     "\t 3. SALIR"
     )
 
-        
-    opcion = float(input("Seleccione una opcion: "))
-    if(opcion == 1):
-        AgregarCamperArtemis("camperArtemis")
-    elif(opcion==1.1):
-        print(dbCampusArtemis)
-    elif(opcion==1.2):
-        AgregarCamperArtemis("camperArtemis")
-    elif(opcion==1.3):
-        EliminarCamperArtemis("camperArtemis")
-    elif(opcion==1.4):
-        lista1 = sorted(dbCampusArtemis, key=lambda x: x['nombreArtemis'])
-        print("\nOrdenado por 'nombreArtemis'")
-        print(lista1)
-    elif(opcion==1.5):
-        ObtenerCamperArtemis("nombreArtemis")
-    elif(opcion == 2):
-        AgregarCamperSputnik("nombreSputnik")
-    elif(opcion==1.1):
-        print(dbCampusSputnik)
-    elif(opcion==1.2):
-        AgregarCamperSputnik("nombreSputnik")
-    elif(opcion==1.3):
-        EliminarCamperSputnik("nombreSputnik")
-    elif(opcion==1.4):
-        lista2 = sorted(dbCampusSputnik, key=lambda x: x['nombreSputnik'])
-        print("\nOrdenado por 'nombreSputnik'")
-        print(lista2)
-    elif(opcion==1.5):
-        ObtenerCamperSputnik("nombreSputnik")
+
+    opcion = input("Porfavor ingresar Opcion: ")
+
+    if opcion == '1':
+        dbcampusArtemis={}
+        print("grupo artemis ha sido creado")
+    if opcion == '1.1':
+        cantidadArtemis = int(input("Cuantos campers desea agregar a Artemis: "))
+        for x in range(cantidadArtemis):
+            nombre = input('Introduce el nombre del camper: ')
+            direccion = input('Introduce la dirección del camper: ')
+            telefono = input('Introduce el teléfono del camper: ')
+            email = input('Introduce el correo electrónico del camper: ')
+            camper = {'nombre':nombre, 'dirección':direccion, 'teléfono':telefono, 'email':email}
+            dbcampusArtemis[nombre] = camper
+    if opcion == '1.2':
+        print('Lista de campers Artemis')
+        print(dbcampusArtemis)
+    if opcion == '1.3':
+        nombre = input('Introduce nombre del camper: ')
+        if nombre in dbcampusArtemis:
+            del dbcampusArtemis[nombre]
+        else:
+            print('No existe el camper con el nombre', nombre)
+    if opcion == '1.4':
+        ordenados = sorted(dbcampusArtemis, key=lambda campers : campers[0])
+        print(ordenados)
+    if opcion == '1.5':
+        nombre = input('Introduce nombre del camper: ')
+        if nombre in dbcampusArtemis:
+            print('nombre:', nombre)
+            for clave, valor in dbcampusArtemis[nombre].items():
+                print(clave.title() + ':', valor)
+        else:
+            print('No existe el camper con el nombre', nombre)
+    if opcion == '2':
+        dbcampusSputnik={}
+        print("grupo Sputnik ha sido creado")
+    if opcion == '2.1':
+        cantidadSputnik = int(input("Cuantos campers desea agregar a Sputnik: "))
+        for x in range(cantidadSputnik):
+            nombreS = input('Introduce el nombre del camper: ')
+            direccionS = input('Introduce la dirección del camper: ')
+            telefonoS = input('Introduce el teléfono del camper: ')
+            emailS = input('Introduce el correo electrónico del camper: ')
+            camperS = {'nombre':nombreS, 'dirección':direccionS, 'teléfono':telefonoS, 'email':emailS}
+            dbcampusSputnik[nombreS] = camperS
+    if opcion == '2.2':
+        print('Lista de campers Sputnik')
+        print(dbcampusSputnik)
+    if opcion == '2.3':
+        nombreS = input('Introduce nombre del camper: ')
+        if nombreS in dbcampusSputnik:
+            del dbcampusSputnik[nombreS]
+        else:
+            print('No existe el camper con el nombre', nombreS)
+    if opcion == '2.4':
+        ordenadosS = sorted(dbcampusSputnik, key=lambda campersS : campersS[0])
+        print(ordenadosS)
+    if opcion == '1.5':
+        nombreS = input('Introduce nombre del camper: ')
+        if nombreS in dbcampusSputnik:
+            print('nombre:', nombreS)
+            for clave, valor in dbcampusSputnik[nombreS].items():
+                print(clave.title() + ':', valor)
+        else:
+            print('No existe el camper con el nombre', nombreS)
+    
+    
+
+
+
