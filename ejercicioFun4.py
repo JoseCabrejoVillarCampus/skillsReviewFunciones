@@ -6,5 +6,17 @@ almacén que mas vendió, cual fue el articulo más vendido de
 ese almacén y cual el más vendido en general"""
 
 
-numeroAlmacenes=500
-dbAlmacenes=[{}]
+def ventasAlmacen():
+    dbRegistros={}
+    numeroRegistros = 5
+    listSum=0
+    for x in range(numeroRegistros):
+        tipoArticulo = input("\nIngrese el Tipo de Articulo: ")
+        numeroVentas= int(input("Ingrese el Número de Unidades Vendidas: "))
+        ventasDic={"articulo":tipoArticulo,"cantidad":numeroVentas}
+        dbRegistros[tipoArticulo,numeroVentas]=ventasDic
+        totalVentas
+ventasAlmacen()
+
+"""ordenados = sorted(dbRegistros, key=lambda  ventas : ventas[1])
+        print(ordenados)"""
