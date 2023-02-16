@@ -8,15 +8,22 @@ ese almacén y cual el más vendido en general"""
 
 def ventasAlmacen():
     dbRegistros={}
-    numeroRegistros = 5
-    listSum=0
-    for x in range(numeroRegistros):
-        tipoArticulo = input("\nIngrese el Tipo de Articulo: ")
-        numeroVentas= int(input("Ingrese el Número de Unidades Vendidas: "))
-        ventasDic={"articulo":tipoArticulo,"cantidad":numeroVentas}
-        dbRegistros[tipoArticulo,numeroVentas]=ventasDic
-        totalVentas
+    numeroAlmacenes = int(input("\nIngrese el Número de Almacenes:"))
+    for x in range(numeroAlmacenes):
+        nombreAlmacen=input("Ingrese el nombre del Almace: ")
+        tipoArticulo1 = input("Ingrese el Primer Tipo de Articulo: ")
+        numeroVentas1= int(input("Ingrese el Número de Unidades Vendidas: "))
+        tipoArticulo2 = input("Ingrese el Segundo Tipo de Articulo: ")
+        numeroVentas2= int(input("Ingrese el Número de Unidades Vendidas: "))
+        tipoArticulo3 = input("Ingrese el Tercer Tipo de Articulo: ")
+        numeroVentas3= int(input("Ingrese el Número de Unidades Vendidas: "))
+        tipoArticulo4 = input("Ingrese el Cuarto Tipo de Articulo: ")
+        numeroVentas4= int(input("Ingrese el Número de Unidades Vendidas: "))
+        tipoArticulo5 = input("Ingrese el Quinto Tipo de Articulo: ")
+        numeroVentas5= int(input("Ingrese el Número de Unidades Vendidas: "))
+        ventasDic={"almacen":nombreAlmacen,"articulo1":tipoArticulo1,"cantidad1":numeroVentas1,"articulo2":tipoArticulo2,"cantidad3":numeroVentas3,"articulo4":tipoArticulo4,"cantidad4":numeroVentas4,"articulo1":tipoArticulo1,"cantidad5":numeroVentas5}
+        dbRegistros[nombreAlmacen,tipoArticulo1,numeroVentas1,tipoArticulo2,numeroVentas2,tipoArticulo3,numeroVentas3,tipoArticulo4,numeroVentas4,tipoArticulo5,numeroVentas5]=ventasDic
+        ordenados = sorted(dbRegistros, key=lambda  ventas : ventas[1])
+        print(ordenados)
 ventasAlmacen()
 
-"""ordenados = sorted(dbRegistros, key=lambda  ventas : ventas[1])
-        print(ordenados)"""
