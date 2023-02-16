@@ -3,11 +3,11 @@ como por ejemplo, la creación, eliminación o búsqueda de los
 developers, entre otros, por tal razón, ha solicitado el diseño de
 un programa que cuente con el siguiente menú como panel de
 control:"""
-
+from os import system
 
 opcion=''
 while opcion!=3:
-    print("----------------------MENU-------------------------\n"
+    print("\n----------------------MENU-------------------------\n\n"
     "\t 1. CREAR GRUPO ARTEMIS:\n"
     "\t1.1 AGREGAR CAMPERS A ARTEMIS:\n"
     "\t1.2 LISTAR CAMPERS DE ARTEMIS:\n"
@@ -24,11 +24,11 @@ while opcion!=3:
     )
 
 
-    opcion = input("Porfavor ingresar Opcion: ")
-
+    opcion = input("\nPorfavor ingresar Opcion: ")
+    system("cls")
     if opcion == '1':
         dbcampusArtemis={}
-        print("grupo artemis ha sido creado")
+        print("\ngrupo Artemis ha sido creado\n")
     if opcion == '1.1':
         cantidadArtemis = int(input("Cuantos campers desea agregar a Artemis: "))
         for x in range(cantidadArtemis):
@@ -38,6 +38,7 @@ while opcion!=3:
             email = input('Introduce el correo electrónico del camper: ')
             camper = {'nombre':nombre, 'dirección':direccion, 'teléfono':telefono, 'email':email}
             dbcampusArtemis[nombre] = camper
+            print("\nEl camper ha sido agregado a Artemis\n")
     if opcion == '1.2':
         print('Lista de campers Artemis')
         print(dbcampusArtemis)
@@ -45,6 +46,7 @@ while opcion!=3:
         nombre = input('Introduce nombre del camper: ')
         if nombre in dbcampusArtemis:
             del dbcampusArtemis[nombre]
+            print("\nEl camper ha sido eliminado de Artemis\n")
         else:
             print('No existe el camper con el nombre', nombre)
     if opcion == '1.4':
@@ -60,7 +62,7 @@ while opcion!=3:
             print('No existe el camper con el nombre', nombre)
     if opcion == '2':
         dbcampusSputnik={}
-        print("grupo Sputnik ha sido creado")
+        print("\ngrupo Sputnik ha sido creado\n")
     if opcion == '2.1':
         cantidadSputnik = int(input("Cuantos campers desea agregar a Sputnik: "))
         for x in range(cantidadSputnik):
@@ -70,6 +72,7 @@ while opcion!=3:
             emailS = input('Introduce el correo electrónico del camper: ')
             camperS = {'nombre':nombreS, 'dirección':direccionS, 'teléfono':telefonoS, 'email':emailS}
             dbcampusSputnik[nombreS] = camperS
+            print("\nEl camper ha sido agregado a Sputnik\n")
     if opcion == '2.2':
         print('Lista de campers Sputnik')
         print(dbcampusSputnik)
@@ -77,6 +80,7 @@ while opcion!=3:
         nombreS = input('Introduce nombre del camper: ')
         if nombreS in dbcampusSputnik:
             del dbcampusSputnik[nombreS]
+            print("\nEl camper ha sido eliminado de Sputnik\n")
         else:
             print('No existe el camper con el nombre', nombreS)
     if opcion == '2.4':
@@ -90,8 +94,8 @@ while opcion!=3:
                 print(clave.title() + ':', valor)
         else:
             print('No existe el camper con el nombre', nombreS)
-    
-    
+    if opcion=='3':
+        break
 
 
 

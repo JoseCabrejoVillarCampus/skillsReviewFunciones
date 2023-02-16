@@ -15,6 +15,7 @@ millones de pesos."""
 
 
 def valorTotal():
+    print("\n\n!-.-.-.-.-.-.-.-.VUELTA A ESPAÑA.-.-.-.-.-.-.-.-.-¡\n")
     nciclistas = int(input("\nCuantos ciclistas desea liquidar: "))
     for x in range(nciclistas):
         sueldoBasico=3277*float(input("Ingrese sueldo básico por kilometro recorrido: "))

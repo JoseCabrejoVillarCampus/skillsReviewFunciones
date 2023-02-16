@@ -8,7 +8,8 @@ ese almacén y cual el más vendido en general"""
 
 def ventasAlmacen():
     dbRegistros={}
-    numeroAlmacenes = int(input("\nIngrese el Número de Almacenes:"))
+    print("\n\n----------------!Bienvenido¡--------------------\n")
+    numeroAlmacenes = int(input("\nPor favor Ingrese el Número de Almacenes:"))
     for x in range(numeroAlmacenes):
         nombreAlmacen=input("Ingrese el nombre del Almace: ")
         tipoArticulo1 = input("Ingrese el Primer Tipo de Articulo: ")
@@ -21,9 +22,10 @@ def ventasAlmacen():
         numeroVentas4= int(input("Ingrese el Número de Unidades Vendidas: "))
         tipoArticulo5 = input("Ingrese el Quinto Tipo de Articulo: ")
         numeroVentas5= int(input("Ingrese el Número de Unidades Vendidas: "))
-        ventasDic={"almacen":nombreAlmacen,"articulo1":tipoArticulo1,"cantidad1":numeroVentas1,"articulo2":tipoArticulo2,"cantidad3":numeroVentas3,"articulo4":tipoArticulo4,"cantidad4":numeroVentas4,"articulo1":tipoArticulo1,"cantidad5":numeroVentas5}
-        dbRegistros[nombreAlmacen,tipoArticulo1,numeroVentas1,tipoArticulo2,numeroVentas2,tipoArticulo3,numeroVentas3,tipoArticulo4,numeroVentas4,tipoArticulo5,numeroVentas5]=ventasDic
-        ordenados = sorted(dbRegistros, key=lambda  ventas : ventas[1])
+        cantidadTotal=numeroVentas1+numeroVentas2+numeroVentas3+numeroVentas4+numeroVentas5
+        ventasDic={"almacen":nombreAlmacen,"articulo1":tipoArticulo1,"cantidad1":numeroVentas1,"articulo2":tipoArticulo2,"cantidad3":numeroVentas3,"articulo4":tipoArticulo4,"cantidad4":numeroVentas4,"articulo1":tipoArticulo1,"cantidad5":numeroVentas5,"totalVentas":cantidadTotal}
+        dbRegistros[nombreAlmacen,tipoArticulo1,numeroVentas1,tipoArticulo2,numeroVentas2,tipoArticulo3,numeroVentas3,tipoArticulo4,numeroVentas4,tipoArticulo5,numeroVentas5,cantidadTotal]=ventasDic
+        ordenados = sorted(dbRegistros, key=lambda  ventas : ventas[0])
         print(ordenados)
 ventasAlmacen()
 

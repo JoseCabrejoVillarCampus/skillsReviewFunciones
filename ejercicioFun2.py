@@ -11,6 +11,7 @@ será de 500 millones. El récord esta en 15,50 metros"""
 
 def AgregarAtletas():
     atletasMarcas={}
+    print("\n\n...............Registro Salto triple.....................\n")
     cantidadAtletas = int(input("\nCuantos atletas desea agregar: "))
     for x in range(cantidadAtletas):
         nombre = input("Ingrese el nombre del atleta: ")
