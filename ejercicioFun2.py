@@ -10,16 +10,20 @@ será de 500 millones. El récord esta en 15,50 metros"""
 
 
 def AgregarAtletas():
-    atletasMarcas={}
+    atletas=[]
+    marcas=[]
+    record=15.50
     print("\n\n...............Registro Salto triple.....................\n")
     cantidadAtletas = int(input("\nCuantos atletas desea agregar: "))
     for x in range(cantidadAtletas):
-        nombre = input("Ingrese el nombre del atleta: ")
-        marca= float(input("Ingrese la marca del atleta: "))
-        atletaDic={"nombre":nombre,"marca":marca}
-        atletasMarcas[nombre,marca]=atletaDic
-        if (marca>15.50):
-            print ("El Atleta rompio el record de 15.50 metros \n el pago que será de 500 millones")
-        ordenados = sorted(atletasMarcas, key=lambda  metros : metros[0])
-        print(ordenados)
+        atletas.append(input("Ingrese el nombre del atleta: "))
+        marcas.append(float(input("Ingrese la marca del atleta: ")))
+        
+        
+    union=(list(zip(atletas,marcas)))
+    union=sorted(union, key=lambda union:union[1], reverse=True)    
+    
+    print(union)
+    if union[0][1]>record:
+        print("el atleta",union[0] ,"rompió el récord el pago queserá de 500 millones")
 AgregarAtletas()

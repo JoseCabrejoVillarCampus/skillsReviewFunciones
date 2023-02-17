@@ -6,24 +6,23 @@ almacén que mas vendió, cual fue el articulo más vendido de
 ese almacén y cual el más vendido en general"""
 
 
-def ventasAlmacen():
-    almacen=[]
-    articulo=[]
-    articuloCantidad=[]
 
+def ventasAlmacen():
+    dbRegistros={}
     print("\n\n----------------!Bienvenido¡--------------------\n")
     numeroAlmacenes = int(input("\nPor favor Ingrese el Número de Almacenes: "))
-    for x in range(numeroAlmacenes):
-        almacen.append(input("\n\tIngrese el nombre del Almace: "))
-        cantidadVendidad= int(input("\n\tIngrese la Cantidad de Articulos: "))
-        for i in range(cantidadVendidad):
-            articulo.append(input("\n\tIngrese el Nombre del Articulo: "))
-            articuloCantidad.append(int(input("\n\tIngrese el Número de Unidades Vendidas: ")))
+    for i in range(numeroAlmacenes):
+            nombreAlmacen=input(f"Ingrese el nombre del Almacen {i+1}: ")
+            nRegistros=int(input("\nPor favor Ingrese cantidad de Registros: "))
+            for x in range(nRegistros):
+                articulo = input(f"Ingrese el Primer Tipo de Articulo {i+1}: ")
+                numeroVendido= input("Ingrese la cantidad del articulo vendido")
+                if nombreAlmacen in dbRegistros:
+                    if articulo in dbRegistros[nombreAlmacen]:
+                        dbRegistros[nombreAlmacen][articulo] +=numeroVendido
+                    else : dbRegistros[nombreAlmacen][articulo] =numeroVendido
+                else:dbRegistros[nombreAlmacen]={articulo: numeroVendido}
+    Total=sum(numeroVendido)
     
-    
-    union=(list(zip(almacen,articulo,articuloCantidad)))
-    union=sorted(union, key=lambda union:union[0], reverse=True)
-    resultado = ["En el Almacen", union[0][0] ,"Se vendio el rticulo", union[0][1], "En cantidad de",union[0][2],"unidades", "El articulo mas vendido por el almacen fue: ", max(union[0])]
-    print(resultado)
-
+    print(dbRegistros)
 ventasAlmacen()
