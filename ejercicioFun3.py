@@ -23,6 +23,6 @@ def valorTotal():
         if numeroKilometrosLider>1800:
             print(sueldoBasico+(sueldoBasico*0.25))
         else:
-            print(sueldoBasico)
+            print("su sueldo es de: ", sueldoBasico)
 
 valorTotal()
