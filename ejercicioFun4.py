@@ -16,13 +16,21 @@ def ventasAlmacen():
             nRegistros=int(input("\nPor favor Ingrese cantidad de Registros: "))
             for x in range(nRegistros):
                 articulo = input(f"Ingrese el Primer Tipo de Articulo {i+1}: ")
-                numeroVendido= input("Ingrese la cantidad del articulo vendido")
+                numeroVendido= int(input("Ingrese la cantidad del articulo vendido: "))
                 if nombreAlmacen in dbRegistros:
                     if articulo in dbRegistros[nombreAlmacen]:
                         dbRegistros[nombreAlmacen][articulo] +=numeroVendido
                     else : dbRegistros[nombreAlmacen][articulo] =numeroVendido
                 else:dbRegistros[nombreAlmacen]={articulo: numeroVendido}
-    Total=sum(numeroVendido)
     
-    print(dbRegistros)
+    almacenMayorVentas=""
+    almacenMayorVentasToTAL=0
+    for nombreAlmacen, numeroVendido in dbRegistros.items():
+        almacenMayorVentas= sum(numeroVendido.values())
+        if almacenMayorVentas > almacenMayorVentasToTAL:
+             almacenMayorVentasToTAL= almacenMayorVentas
+             almacenMayorVentas= nombreAlmacen
+
+    print(almacenMayorVentas)
+    print(almacenMayorVentasToTAL)
 ventasAlmacen()
