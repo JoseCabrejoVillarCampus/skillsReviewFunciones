@@ -31,6 +31,6 @@ def ventasAlmacen():
              almacenMayorVentasToTAL= almacenMayorVentas
              almacenMayorVentas= nombreAlmacen
 
-    print(almacenMayorVentas)
-    print(almacenMayorVentasToTAL)
+    print("El almacen con mayor ventas fue: ", almacenMayorVentas)
+    print("con un Total de:" ,almacenMayorVentasToTAL)
 ventasAlmacen()
